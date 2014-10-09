@@ -1,0 +1,44 @@
+// Copyright (c) 2014 Mimetics Inc.
+// All Rights Reserved
+//
+// THIS SOFTWARE IS PROVIDED BY MIMETICS "AS IS" WITHOUT ANY EXPRESSED OR 
+// IMPLIED WARRANTIES.  IN NO CASE SHALL MIMETICS OR ANY CONTRIBUTORS BE
+// LIABLE IN ANY DAMAGES CAUSED BY THE USE OF THIS SOFTWARE.  
+//
+// FileName: fncDemo2.function
+// Version : 01.0
+//
+// Author  : myke predko
+//
+// Description: Demonstration of Operation of Function Files in a C Program
+//
+// Release History:
+//  fncDemo1 - Provide Increment, Decrement and Add, Subtract,  Functions
+//  fncDemo2 - Provide Increment, Decrement and Add, Subtract,  Functions with delay so "status" can see the change in executing file
+
+int Increment(int x) {
+
+    syscall(delay, itos(1000));
+
+    return x + 1;
+}
+int Decrement(int x) {
+
+    syscall(delay, itos(1000));
+
+    return x - 1;
+}
+
+int Add(int x, int y) {
+
+    syscall(delay, itos(1000));
+
+    return x + y;
+}
+
+int Subtract(int x, int y) {
+
+    syscall(delay, itos(1000));
+
+    return x - y;
+}

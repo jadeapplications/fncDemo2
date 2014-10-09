@@ -1,0 +1,60 @@
+// Copyright (c) 2014 Mimetics Inc.
+// All Rights Reserved
+//
+// THIS SOFTWARE IS PROVIDED BY MIMETICS "AS IS" WITHOUT ANY EXPRESSED OR 
+// IMPLIED WARRANTIES.  IN NO CASE SHALL MIMETICS OR ANY CONTRIBUTORS BE
+// LIABLE IN ANY DAMAGES CAUSED BY THE USE OF THIS SOFTWARE.  
+//
+// FileName: fncDemo2.script
+// Version : 01.0
+//
+// Author  : myke predko
+//
+// Description: Basic Arithmetic Operations with external Functions
+//
+// Release History:
+//  fncDemo1 - Just Test different functions
+//           - Add waitForPress Subroutine
+//           - Add printEquation Subroutine
+//  fncDemo2 - Added Delays so the calls to the .function File could be observed.  
+int                         X = 8;
+int                         Y = 10;
+
+    syscall(cleardisplay, "");   
+    syscall(setcursorstart, "10:0");   syscall(drawtext, "X = " + itos(X));
+    syscall(setcursorstart, "10:10");  syscall(drawtext, "Y = " + itos(Y));
+
+    printEquation("X + 1 = " + itos(Increment(X)));
+
+    printEquation("X - 1 = " + itos(Decrement(X)));
+
+    printEquation("X + Y = " + itos(Add(X, Y)));
+
+    printEquation("X - Y = " + itos(Subtract(X, Y)));
+
+
+printEquation(str String) {
+
+    syscall(setcursorstart, "10:20");  syscall(drawtext, "            ");
+                                       syscall(drawtext, String);
+}
+
+
+waitForPress() {  //  Wait for release and press - with debounce
+int                         i;
+
+    for (i = 0; 10 > i; ) {
+        syscall(delay, itos(10));
+        if ("udlre" == syscall(getbutton, "")) {
+            ++i;
+        }
+    }
+
+    for (i = 0; 10 > i; ) {
+        syscall(delay, itos(10));
+        if ("udlre" != syscall(getbutton, "")) {
+            ++i;
+        }
+    }
+
+}
