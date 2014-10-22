@@ -1,8 +1,6 @@
 fncDemo2
 ========
 
-C: 
-
 Demonstrate the .function file operation with simple mathematical operations.
 
 Note that two files are required for proper operation of this project.  A delay has been added to the functions so that the execution in the .function file can be observed with the "status\r" console command.  
